@@ -11,14 +11,17 @@
 
 ## 假設我今天去 Google 首頁搜尋框打上：JavaScript 並且按下 Enter，請說出從這一刻開始到我看到搜尋結果為止發生在背後的事情。
 
-1. 當我們進入 google 時，瀏覽器會先去問 DNS， google 的 IP 位址是什麼
-2. DNS 回應瀏覽器 Google 的 IP 位址為 10.1.1.1
-3. 瀏覽器接著把我們的 request 封包(查詢的關鍵字 JavaScript )送到到 10.1.1.1 IP 位址
-4. 10.1.1.1 的 Server 收到 request 封包
-5. Server 查詢資料庫，查詢我們給他的關鍵字 JavaScript
-6. 資料庫找到後，回傳給 Server
-7. Server 再回傳 response 封包給瀏覽器
-8. 瀏覽器解析回傳的 response 封包資訊並且顯示出來給使用者
+1. 當我們進入 google 送出關鍵字時，瀏覽器會先去問 DNS(8.8.8.8)， google 的 IP 位址是什麼
+2. DNS 回應瀏覽器 Google 的 IP 位址為 172.217.160.68
+3. 瀏覽器接著把我們的 request 封包(查詢的關鍵字 JavaScript )送到到 172.217.160.68 IP 位址
+4. Google Server 收到 request 封包
+5. Google Server 查詢資料庫，查詢我們給他的關鍵字 JavaScript
+6. 資料庫找到後，回傳給 Google Server
+7. Google Server 再回傳 response 封包給瀏覽器
+8. 瀏覽器解析收到的 response 封包資訊並且顯示出來給使用者
+
+註記: DNS Server，負責解析 DNS，Google 有免費的 DNS Server，IP 位置是 8.8.8.8
+而 DNS server 跟 Google Server 是不同的東西
 
 ## 請列舉出 3 個「課程沒有提到」的 command line 指令並且說明功用
 
