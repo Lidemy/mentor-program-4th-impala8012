@@ -1,5 +1,6 @@
 function join(arr, concatStr) {
   let ans = arr[0];
+  if (ans === "") return str;
   for (let i = 1; i < arr.length; i++) {
     ans += concatStr + arr[i];
   }
