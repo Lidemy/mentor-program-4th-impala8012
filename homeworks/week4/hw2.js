@@ -3,11 +3,14 @@ const request = require('request');
 const process = require('process');
 
 const baseURL = 'https://lidemy-book-store.herokuapp.com/books';
-// 列出書籍
-if (process.argv[2] === 'list') {
+const action = process.argv[2];
+const params = process.argv[3];
+
+// 列出20本書籍
+function listBooks() {
   request(`${baseURL}?_limit=20`, (
     error,
-    Response,
+    response,
     body,
   ) => {
     if (error) {
@@ -24,11 +27,13 @@ if (process.argv[2] === 'list') {
     }
   });
 }
+
+
 // 讀取某id書籍
-if (process.argv[2] === 'read') {
+function readBook(id) {
   request.get(
-    `${baseURL}/${process.argv[3]}`,
-    (error, Response, body) => {
+    `${baseURL}/${id}`,
+    (error, response, body) => {
       if (error) {
         console.log(error);
       }
@@ -42,52 +47,75 @@ if (process.argv[2] === 'read') {
     },
   );
 }
+
 // 刪除某id書籍
-if (process.argv[2] === 'delete') {
+function deleteBook(id) {
   request.delete(
-    `${baseURL}/${process.argv[3]}`,
-    (error, Response, body) => {
+    `${baseURL}/${id}`,
+    (error, response, body) => {
       if (error) {
         console.log('刪除失敗', error);
       } else {
-        console.log(`已刪除id為${process.argv[3]}的書籍`);
+        console.log(`已刪除id為${id}的書籍`);
       }
     },
   );
 }
+
 // 新增書籍
-if (process.argv[2] === 'create') {
+function createBook(name) {
   request.post(
     {
       url: baseURL,
       form: {
-        name: process.argv[3],
+        name,
       },
     },
-    (error, Response, body) => {
+    (error, response, body) => {
       if (error) {
         console.log(error);
       } else {
-        console.log(`已新增書名: ${process.argv[3]}`);
+        console.log(`已新增書名: ${name}`);
       }
     },
   );
 }
+
 // 更新書籍
-if (process.argv[2] === 'update') {
+function updateBook(id, newName) {
   request.patch(
     {
-      url: `${baseURL}/${process.argv[3]}`,
+      url: `${baseURL}/${id}`,
       form: {
-        name: process.argv[4],
+        name: newName,
       },
     },
-    (error, Response, body) => {
+    (error, response, body) => {
       if (error) {
         console.log('更新失敗', error);
       } else {
-        console.log(`更新id為${process.argv[3]}的書名為${process.argv[4]}`);
+        console.log(`更新id為${id}的書名為${newName}`);
       }
     },
   );
+}
+
+switch (action) {
+  case 'list':
+    listBooks();
+    break;
+  case 'read':
+    readBook(params);
+    break;
+  case 'delete':
+    deleteBook(params);
+    break;
+  case 'create':
+    createBook(params);
+    break;
+  case 'update':
+    updateBook(params, process.argv[4]);
+    break;
+  default:
+    console.log('輸入正確的指令: list, read, create, delete, update');
 }
