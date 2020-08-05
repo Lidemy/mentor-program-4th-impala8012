@@ -226,6 +226,8 @@ Mindset 建立：
 
 再來可以看這篇文章，重新省視一次自己對 API 的理解：[從拉麵店的販賣機理解什麼是 API](https://medium.com/@hulitw/ramen-and-api-6238437dc544)，然後看這篇文字版的傳紙條故事複習一下網路概念：[從傳紙條輕鬆學習基本網路概念](https://medium.com/@hulitw/learning-tcp-ip-http-via-sending-letter-5d3299203660)
 
+如果對於這些概念還是不熟，可以先去寫一下作業，然後看 Lidemy 上第四週課程的：「Request 額外補充（超重要）」，應該能幫你解開一些疑惑。
+
 額外補充一個影片，英文 ok 的話可以看：[CS75 (Summer 2012) Lecture 0 HTTP Harvard Web Development David Malan](https://www.youtube.com/watch?v=8KuO4r5CHjM)，內容與 NET101 類似，只是讓大家再做個複習
 
 [HW4 作業連結](/homeworks/week4)
@@ -288,6 +290,8 @@ HTML 的部分會簡單介紹幾個常見的 tag，以及 head 的一些屬性�
 #### 指定教材
 
 先看 [FE101] 前端基礎：HTML 與 CSS 這堂課熟悉 HTML 與 CSS，並且練習切版。接著可以看 [Chrome 網頁除錯功能大解密](https://www.udemy.com/chrome-devtools/)來熟悉 Chrome devtool 的使用方式。
+
+如果覺得課程太理論，想要看比較偏實戰的，可以看 Lidemy 上第四期的「第六週特別補充課程：position 與 display 實戰篇 by minw 助教」相關單元，會有各種切版實戰。
 
 若是還有時間，可以透過這兩個小遊戲來熟悉 CSS Selector 跟 Flexbox 排版的方法：
 
@@ -367,6 +371,8 @@ HTML 的部分會簡單介紹幾個常見的 tag，以及 head 的一些屬性�
 #### 指定教材
 
 觀看 [BE101] 用 PHP 與 MySQL 學習後端基礎並跟著動手做，看到「真正的實戰：留言板 - 修正問題篇」裡面的「PHP 內建 session 機制」就好，同時跟著裡面的教學把留言板實作出來。
+
+（「基礎實戰：Job board 職缺報報」跟「基礎實戰：Blog 部落格」屬於比較早期拍的影片，程式碼的風格跟其他的可能會不一樣，建議你可以先跳過這兩個段落，實戰的部分直接看「真正的實戰：留言板 - 初階實作篇」，如果覺得看不太懂，再回來看這兩個早期拍的）
 
 並且透過以下幾篇文章加深對 Cookie 與 Session 的理解：
 
