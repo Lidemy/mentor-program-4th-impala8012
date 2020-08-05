@@ -85,12 +85,6 @@
   margin-top: 12px;
 }
 
-.form__input .input__title__none {
-  display: block;
-  font-size: 20px;
-  margin-top: 45px;
-}
-
 .button {
   width: 92px;
   display: flex;
