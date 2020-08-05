@@ -255,14 +255,14 @@ footer {
   color: #489846;
   position: absolute;
   right: 0;
-  top: -16px;
+  top: -10%;
 }
 
 .footer__social {
   font-family: Questrial;
   font-size: 14px;
   position: absolute;
-  top: 30%;
+  top: 25%;
   right: 0;
 }
 
@@ -353,7 +353,7 @@ footer {
 
 @media (max-width: 500px) {
   .wrapper li a {
-    padding: 13px 18px;
+    padding: 10% 20%;
   }
   .banner {
     height: 200px;
@@ -367,12 +367,15 @@ footer {
     margin-left: 0px;
   }
   .footer__bottom {
-    padding: 10px;
+    padding: 1px;
+    white-space: pre;
+    font-size: 12px;
   }
 
   .footer__cite {
     font-size: 30px;
-    bottom: -4px;
+    top: 75%;
+    right: 0;
   }
 
   .footer__social {
@@ -382,13 +385,7 @@ footer {
 
 @media (max-width: 425px) {
   .navbar {
-    padding: 0 35px;
-  }
-  .banner {
-    height: 150px;
-  }
-  .wrapper li a {
-    padding: 13px 15px;
+    padding: 0 5%;
   }
   .section {
     margin-top: 40px;
@@ -407,13 +404,13 @@ footer {
     margin-bottom: 40px;
   }
   .button {
-    padding: 35px 50px;
-    font-size: 28px;
+    padding: 8% 12%;
   }
   .footer__top {
     padding: 15px;
   }
-  .footer__info {
+  .footer__info,  
+  .footer__social {
     font-size: 12px;
   }
   .footer__info div + div {
@@ -421,17 +418,6 @@ footer {
   }
   .footer__cite {
     font-size: 24px;
-    top: 65px;
-    right: 0;
-  }
-  .footer__social {
-    top: 53px;
-    font-size: 12px;
-  }
-  .footer__bottom {
-    padding: 0;
-    white-space: pre;
-    font-size: 14px;
   }
 }
 
@@ -439,8 +425,9 @@ footer {
   .navbar__name {
     font-size: 30px;
   }
-  .wrapper li a {
-    padding: 8px 10px;
+  .wrapper li a,
+  .section__desc,
+  .section .comment .message {
     font-size: 14px;
   }
   .banner {
@@ -450,17 +437,8 @@ footer {
   .section__title {
     font-size: 20px;
   }
-
-  .section__desc {
-    font-size: 14px;
-  }
-
   .button {
     font-size: 20px;
-    padding: 30px 40px;
-  }
-  .section .comment .message {
-    font-size: 14px;
   }
   .author {
     font-size: 16px;
