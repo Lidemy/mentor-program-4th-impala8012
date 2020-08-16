@@ -23,7 +23,8 @@ document.querySelector('.add__item').addEventListener('keypress', (e) => {
 document.querySelector('.list__container').addEventListener('click', (e) => {
   // 刪除代辦事項
   if (e.target.classList.contains('close__btn')) {
-    e.target.parentNode.parentNode.remove();
+    const list = e.target.parentNode.parentNode;
+    list.remove();
   }
 
   // 設定以完成

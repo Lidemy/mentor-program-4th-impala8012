@@ -3,6 +3,7 @@
 const form = document.querySelector('form');
 
 form.addEventListener('submit', (e) => {
+  e.preventDefault();
   const requiredInput = document.querySelectorAll(
     ".required + input[type='text']",
   );
@@ -18,17 +19,34 @@ form.addEventListener('submit', (e) => {
       requiredInput[i].nextElementSibling.classList.add('hide-error');
     }
   }
+
+  let radioContent;
   // 選取必填的 radio btn
-  if (radios[0].checked === false && radios[1].checked === false) {
+  const checkValue = [...radios].some(radio => radio.checked);
+  if (checkValue) {
+    document
+      .querySelector('.signup__type2')
+      .nextElementSibling.classList.add('hide-error');
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        radioContent = radios[i].id;
+      }
+    }
+  } else {
     document
       .querySelector('.signup__type2')
       .nextElementSibling.classList.remove('hide-error');
     noValue = true;
-  } else {
-    document
-      .querySelector('.signup__type2')
-      .nextElementSibling.classList.add('hide-error');
   }
+
+  const info = {
+    nickname: inputs[0].value,
+    email: inputs[1].value,
+    phone: inputs[2].value,
+    type: radioContent,
+    source: inputs[5].value,
+    others: inputs[6].value,
+  };
   // === true
   if (noValue) {
     alert('有打星號的資料沒有填到喔~(☉д⊙)');
@@ -37,12 +55,12 @@ form.addEventListener('submit', (e) => {
     alert(
       `
     資料填寫完畢
-    你的暱稱 : ${inputs[0].value} \n
-    電子郵件: ${inputs[1].value} \n
-    手機號碼: ${inputs[2].value} \n
-    報名類型為: ${document.querySelector("input[type='radio']:checked").id} \n
-    得知來源: ${inputs[5].value} \n
-    其他: ${inputs[6].value}
+    你的暱稱 : ${info.nickname},
+    電子郵件: ${info.email},
+    手機號碼: ${info.phone},
+    報名類型為: ${info.type}
+    得知來源: ${info.source},
+    其他: ${info.others}
     `,
     );
   }
