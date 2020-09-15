@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">Todo List</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container w-50">
+      <h1 class="row justify-content-center mt-2 mr-2">
+        To Do List
+        <button type="button" class="btn btn-save btn-secondary m-2">
+          儲存
+        </button>
+        <button type="button" class="btn-read btn btn-secondary m-2" data-toggle="modal"  data-target="#read-todo">讀取紀錄</button>
+        <button type="button" class="btn delete-all btn-secondary m-2">
+          清空
+        </button>
+      </h1>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend"></div><input
+          type="text"
+          class="form-control input-add-todo"
+          placeholder="請輸入代辦事項"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-danger btn-add" type="button">新增</button>
+        </div>
+      </div>
+
+      <div class="todos list-group"></div>
+
+      <div class="info mt-2 justify-content-between align-items-center">
+        <div><span class="uncompleted-count">0</span>個未完成</div>
+        <div class="options">
+          <div type="button" class="btn btn-primary mr-2" data-filter="all">全部</div>
+          <div type="button" class="btn btn-primary mr-2" data-filter="uncomplete">未完成</div>
+          <div type="button" class="btn btn-primary mr-2" data-filter="done">已完成</div>
+        </div>
+        <div type="button" class="btn btn-primary clear-all">移除已完成待辦</div>
+      </div>
+
+      <section class="modal-template">
+
+    </section>
+
+    </div>
+
+
+
+    <script src="./index.js"></script>
+  </body>
+</html>
