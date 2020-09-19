@@ -1,0 +1,27 @@
+.btn-delete,
+.btn-edit {
+  opacity: 0;
+}
+.todo:hover .btn-delete,
+.todo:hover .btn-edit {
+  opacity: 1;
+}
+
+input[type="checkbox"]:checked ~ label {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.todo__content-wrapper {
+  flex: 1;
+}
+
+.todo__content {
+  display: block;
+}
+
+.info,
+.options,
+.todo {
+  display: flex;
+}
