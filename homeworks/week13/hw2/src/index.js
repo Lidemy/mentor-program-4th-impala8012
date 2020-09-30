@@ -1,12 +1,13 @@
 /* eslint-disable import/prefer-default-export */
+/* eslint-disable */
 /* eslint-disable no-alert */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-shadow */
 /* eslint-disable no-use-before-define */
 /* eslint-disable prefer-const */
-/* eslint-disable camelcase */
 /* eslint-disable import/no-unresolved */
+/* eslint-disable camelcase */
 import $ from 'jquery';
 import { getComments, addComments } from './api';
 import { appendCommentToDom, appendStyle } from './utils';
@@ -14,8 +15,8 @@ import { getLoadMoreButton, cssTemplate, getForm } from './template';
 
 // 初始化
 export function init(options) {
-  let site_key = '';
-  let apiUrl = '';
+  // let site_key = '';
+  // let apiUrl = '';
   let containerElement = null;
   let commentDOM = null;
   let lastID = null;
@@ -26,8 +27,9 @@ export function init(options) {
   let formClassName;
   let formSelector;
 
-  site_key = options.site_key;
-  apiUrl = options.apiUrl;
+  // site_key = options.site_key;
+  // apiUrl = options.apiUrl;
+  let { site_key, apiUrl } = options;
   loadMoreClassName = `${site_key}-load-more`;
   commentClassName = `${site_key}-comments`;
   formClassName = `${site_key}-add-comment-form`;
