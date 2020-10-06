@@ -1,20 +1,17 @@
 /* eslint-disable no-shadow */
-/* eslint-disable no-else-return */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-plusplus */
-
+// const request = new XMLHttpRequest();
 const url = 'https://api.twitch.tv/kraken/streams/?game=';
 const clientID = 'g81urzfeshmfzigurropa59jh4vlu0';
 
-// 檢查狀態
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 400) {
     return response.json();
-  } else {
-    const error = new Error(response.statusText);
-    error.response = response;
-    throw error;
   }
+  const error = new Error(response.statusText);
+  error.response = response;
+  throw error;
 }
 
 function getGamesTitle(data) {
@@ -26,10 +23,9 @@ function getGamesTitle(data) {
     li.innerText = topGames[i];
     document.querySelector('ul').appendChild(li);
   }
-  return Promise.resolve(topGames);
+  appendFirstGames(topGames);
 }
 
-// Fetch抓前五名的遊戲
 function getGames() {
   return fetch('https://api.twitch.tv/kraken/games/top?limit=5', {
     headers: {
@@ -43,17 +39,13 @@ getGames()
   .then(checkStatus)
   .then(getGamesTitle)
   .catch((err) => {
-    console.log('SOMETHING WENT WRONG WHILE GETTING GAMES', err);
-  })
-  .then(appendFirstGames)
-  .catch((err) => {
     console.log('STH WENT WRONG WHILE APPENDING GAMES', err);
   });
 
 // 遊戲的實況
 function streams(data) {
   const stream = data.streams;
-  return Promise.resolve(stream);
+  appendStreams(stream);
 }
 
 // 拿遊戲的實況並載入
@@ -66,10 +58,6 @@ function getStreams(name) {
   })
     .then(checkStatus)
     .then(streams)
-    .catch((err) => {
-      console.log('STH WENT WRONG WHILE GETTING STREAMS', err);
-    })
-    .then(appendStreams)
     .catch((err) => {
       console.log('STH WENT WRONG WHILE APPENDING STREAMS', err);
     });
