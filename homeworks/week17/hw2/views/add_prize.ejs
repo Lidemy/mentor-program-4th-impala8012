@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('template/head') %>
+  </head>
+  <body>
+    <%- include('template/navbar') %>
+    <div class="background">
+      <div class="prize prize__add">
+        <form action="/add-prize%>" method="POST" class="form__prize" />
+          <h3>新增獎品</h3>
+          <div class="mt-3">
+            獎項名稱：<input type="text" name="name" />
+          </div>
+          <div class="mt-3">
+            獎品內容：<input type="text" name="content"/>
+          </div>
+          <div class="mt-3">
+            中獎機率：<input type="text" name="probability"/>
+          </div>
+          <div class="mt-3">
+            圖片網址：<input type="text" name="imgURL"/>
+          </div>
+          <p class="errorMessage"><%= errorMessage %></p>
+          <button type="submit" class="btn btn-dark btn-sm mt-3 price_editButton">提交</button>
+          </form>
+      </div>
+    </div>
+    <%- include('template/footer') %>
+    <script src="./index.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('template/head') %>
+</head>
+<body>
+    <%- include('template/navbar')%>
+    <%- include('template/banner')%>
+
+    <div class="container-wrapper">
+      <div class="container">
+      <% articles.forEach(function(article){ %>
+        <div class="admin-posts">
+          <div class="admin-post">
+            <div class="admin-post__title">
+              <a class="post__list" href="/article/<%= article.id %>"><%= article.title%></a>
+            </div>
+            <div class="admin-post__info">
+              <div class="admin-post__created-at">
+                <%= formatTime(article.createdAt) %>
+                <a class="category" href="/category/<%= article.Category.id %>">分類:<%= article.Category.name %></a>
+              </div>
+              <% if(username) { %>
+                  <a class="admin-post__btn" href="update_article/<%= article.id %>">編輯</a>
+                  <a class="admin-post__btn" href="delete_articles/<%= article.id %>">刪除</a>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+      </div>
+    </div>
+    <%- include('template/footer')%>
+</body>
+</html>
+

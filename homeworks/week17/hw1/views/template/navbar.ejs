@@ -1,0 +1,33 @@
+<nav class="navbar">
+    <div class="wrapper navbar__wrapper">
+      <div class="navbar__site-name">
+        <a href='/'>Dylan's Blog</a>
+      </div>
+      <ul class="navbar__list">
+        <div>
+          <li><a href="/article_list">文章列表</a></li>
+          <li><a href="/category_list">分類專區</a></li>
+          <li><a href="/aboutme">關於我</a></li>
+        </div>
+        <div>
+          <% if(username){ %>
+            <% if( path === '/admin_article'){ %>
+              <li><a href="/add_article">新增文章</a></li>
+              <li><a href="/admin_category">管理分類</a></li>
+              <li><a href="/logout">登出</a></li>
+            <% } else if(path === '/admin_category'){ %>
+              <li><a href="/add_category">新增分類</a></li>
+              <li><a href="/admin_article">管理文章</a></li>
+              <li><a href="/logout">登出</a></li>
+            <% } else { %>
+              <li><a href="/admin_article">管理文章</a></li>
+              <li><a href="/admin_category">管理分類</a></li>
+              <li><a href="/logout">登出</a></li>
+            <% } %>
+          <% } else { %>
+            <li><a href="/login">登入</a></li>
+          <% } %>
+        </div>
+      </ul>
+    </div>
+  </nav>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <%- include('template/head') %>
+</head>
+
+<body>
+    <%- include('template/navbar')%>
+    <%- include('template/banner')%>
+
+  <div class="container-wrapper">
+    <div class="posts">
+    <% articles.forEach(function(article) { %>
+      <article class="post">
+        <div class="post__header">
+          <h2><%= article.title %></h2>
+          <div class="post__actions">
+            <% if(username) { %>
+              <a class="post__action" href="/update_article/<%= article.id %>">編輯</a>
+            <% } %>
+          </div>
+        </div>
+        <div class="post__info">
+          <span><%= formatTime(article.createdAt) %><span>
+          <a class="category" href="/category/<%= article.Category.id %>"><%= article.Category.name %></a>
+        </div>
+        <div class="post__content">
+          <%- (article.content).substr(0,250) %>
+        </div>
+        <a class="btn-read-more" href="/article/<%= article.id %>">READ MORE</a>
+      </article>
+    <% }) %>
+    </div>
+  </div>
+  <footer>Copyright © 2020 Who's Blog All Rights Reserved.</footer>
+</body>
+</html>
