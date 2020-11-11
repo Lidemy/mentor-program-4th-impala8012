@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <%- include('template/head') %>
+</head>
+
+<body>
+    <%- include('template/navbar')%>
+    <%- include('template/banner')%>
+
+  <div class="container-wrapper">
+    <div class="posts">
+      <article class="post">
+        <div class="post__header">
+          <h2><%= article.title %></h2>
+          <div class="post__actions">
+            <a class="post__action" href="/">回首頁</a>
+          <% if(username) { %>
+            <a class="post__action" href="/update_article/<%= article.id%>">編輯</a>
+          <% } %>
+          </div>
+        </div>
+        <div class="post__info">
+            <%= formatTime(article.createdAt) %>
+          <a class="category" href="/category/<%= article.Category.id%>"><%= article.Category.name %></a>
+
+        </div>
+        <div class="post__content"><%- article.content %>
+        </div>
+      </article>
+    </div>
+  </div>
+  <footer>Copyright © 2020 Who's Blog All Rights Reserved.</footer>
+</body>
+</html>

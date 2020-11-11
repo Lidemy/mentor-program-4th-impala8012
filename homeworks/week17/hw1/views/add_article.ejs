@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <%- include('template/head') %>
+</head>
+
+<body>
+    <%- include('template/navbar')%>
+    <%- include('template/banner')%>
+
+  <div class="container-wrapper">
+    <div class="container">
+      <div class="edit-post">
+        <form action="/add_article" method="POST">
+          <div class="edit-post__title">
+            發表文章：
+          </div>
+          <p class="errorMessage"><%= errorMessage %></p>
+          <div class="edit-post__input-wrapper">
+            分類：<select name="categoryId">
+            <% categories.forEach(function(category){ %>
+              <option value="<%= category.id%>">
+                <%= category.name %>
+              </option>
+            <% }) %>
+            </select>
+          </div>
+          <div class="edit-post__input-wrapper">
+            <input class="edit-post__input" placeholder="請輸入文章標題" name="title"/>
+          </div>
+          <div class="edit-post__input-wrapper">
+            <textarea id="editor" rows="50" class="edit-post__content ck-editor__editable_inline" name="content"></textarea>
+          </div>
+          <div class="edit-post__btn-wrapper">
+              <input type="submit" class="edit-post__btn" value="送出"></input>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <%- include('template/footer')%>
+</body>
+</html>
